@@ -1,22 +1,11 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<c:set var="ctx">${pageContext.request.contextPath}</c:set>
+<%@ include file="/templates/jstl.jsp" %>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Issue Tracker</title>
-		<!-- Bootstrap -->
-		<link href="${ctx}/css/bootstrap.css" rel="stylesheet">
-		<link href="${ctx}/css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="${ctx}/css/issuetracker.css" rel="stylesheet">
-		<script src="${ctx}/js/jquery-1.8.2.js"></script>
-		<script src="${ctx}/js/validator/jquery.validate.min.js"></script>
-		<script src="${ctx}/js/validator/messages_pt_BR.js"></script>
-		<script src="${ctx}/js/issuetracker.js" ></script>
-		<script src="${ctx}/js/bootstrap.js" ></script>
+		<%@ include file="/templates/head.jsp" %>
 		<script type="text/javascript">
 			$(function() {
 				$("#form").validate({
@@ -49,49 +38,13 @@
 	</head>
 	<body>
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					<a class="brand" href="#">Issue Tracker</a>
-					<div class="nav-collapse collapse">
-						<ul class="nav">
-							<li class="active"><a href="${ctx}/dashboard/lista">Dashboard</a></li>
-							<li><a href="${ctx}/projeto/lista">Projetos</a></li>
-							<li><a href="${ctx}/usuario/lista">Usuários</a></li>
-							<li><a href="${ctx}/issue/lista">Issues</a></li>
-						</ul>
-						<ul class="nav pull-right">
-	                      <li><a href="#"><span class="badge badge-success">Rafael Ponte</span></a></li>
-	                      <li class="divider-vertical"></li>
-	                      <li><a href="#">Sair</a></li>
-	                    </ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@ include file="/templates/menu.jsp" %>
 	
 		<div class="wrapper">
 			<div class="container">
-				<!-- Error Messages -->
-				<c:if test="${not empty errors }">
-					<div class="alert alert-error">
-						<button type="button" class="close" data-dismiss="alert">×</button>
-						<h4>Erro(s):</h4>
-						<dl class="dl-horizontal">
-							<c:forEach items="${errors}" var="error">
-								<dt>${error.category}</dt>
-								<dd>${error.message}</dd>
-							</c:forEach>
-						</dl>
-					</div>
-				</c:if>
-				<!-- Success Messages -->
-				<c:if test="${not empty notice }">
-					<div class="alert alert-success">
-						<button type="button" class="close" data-dismiss="alert">×</button>
-						${notice }
-					</div>
-				</c:if>
+			
+				<%@ include file="/templates/messages.jsp" %>
+				
 				<form id="form"
 					action="adiciona" 
 					method="post" class="form-horizontal">
@@ -169,11 +122,7 @@
 			</div>
 		</div>
 		
-		<footer>
-			<div class="container">
-				<p><a href="${ctx}">Issue Tracker</a> - Registrando Bugs e Features para toda a vida.</p>
-			</div>
-		</footer>
+		<%@ include file="/templates/footer.jsp" %>
 		
 	</body>
 </html>
