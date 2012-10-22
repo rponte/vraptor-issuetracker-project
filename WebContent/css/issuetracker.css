@@ -85,8 +85,3 @@ label.error {
   padding: 0px 8px;
   /* margin-top: 2px; */
 }
-
-input.error,select.error{
-	color: #B94A48;
-	border-color: #B94A48;
-}
