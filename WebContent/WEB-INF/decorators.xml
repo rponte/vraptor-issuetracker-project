@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/templates">
+	<decorator name="main" page="template_principal.jsp">
+    </decorator>
+</decorators>
