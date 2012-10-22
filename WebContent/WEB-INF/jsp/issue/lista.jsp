@@ -48,7 +48,7 @@
 								<td>${issue.assinadoPara.nome }</td>
 								<td class="nowrap">
 									<a href="edita?id=${issue.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
-	    							<a href="remove?id=${issue.id }" onclick="return confirm('Deseja realmente remover esa issue?');"><i class="icon-trash"></i> Excluir</a>
+	    							<a href="remove?id=${issue.id }" onclick="return confirm('Deseja realmente remover essa issue?');"><i class="icon-trash"></i> Excluir</a>
 								</td>
 							</tr>
 						</c:forEach>
