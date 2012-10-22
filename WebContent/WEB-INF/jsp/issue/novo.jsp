@@ -13,7 +13,39 @@
 		<link href="${ctx}/css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="${ctx}/css/issuetracker.css" rel="stylesheet">
 		<script src="${ctx}/js/jquery-1.8.2.js"></script>
+		<script src="${ctx}/js/validator/jquery.validate.min.js"></script>
+		<script src="${ctx}/js/validator/messages_pt_BR.js"></script>
+		<script src="${ctx}/js/issuetracker.js" ></script>
 		<script src="${ctx}/js/bootstrap.js" ></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#form").validate({
+					rules: {
+						"issue.sumario": {
+							required: true,
+							minlength: 3
+						},
+						"issue.descricao": {
+							required: true,
+							minlength: 10,
+							maxlength: 100
+						},
+						"issue.projeto.id": {
+							required: true
+						},
+						"issue.tipo": {
+							required: true
+						},
+						"issue.reportadoEm": {
+							required: true
+						},
+						"issue.assinadoPara.id": {
+							required: true
+						}
+					}
+				});
+			});
+		</script>
 	</head>
 	<body>
 
@@ -40,10 +72,27 @@
 	
 		<div class="wrapper">
 			<div class="container">
-				<div class="alert alert-success">
-					<strong>Success!</strong> Best check yo self, you're not looking too good.
-				</div>
-				<form
+				<!-- Error Messages -->
+				<c:if test="${not empty errors }">
+					<div class="alert alert-error">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						<h4>Erro(s):</h4>
+						<dl class="dl-horizontal">
+							<c:forEach items="${errors}" var="error">
+								<dt>${error.category}</dt>
+								<dd>${error.message}</dd>
+							</c:forEach>
+						</dl>
+					</div>
+				</c:if>
+				<!-- Success Messages -->
+				<c:if test="${not empty notice }">
+					<div class="alert alert-success">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						${notice }
+					</div>
+				</c:if>
+				<form id="form"
 					action="adiciona" 
 					method="post" class="form-horizontal">
 					<legend>Cadastro de Issues</legend>
@@ -65,6 +114,7 @@
 						<label class="control-label">Projeto</label>
 						<div class="controls">
 							<select class="span4" name="issue.projeto.id">
+								<option value="">-- Selecione um projeto --</option>
 								<c:forEach var="projeto" items="${projetos}">
 									<option value="${projeto.id}">${projeto.nome}</option>
 								</c:forEach>
@@ -84,24 +134,25 @@
 							</label>
 						</div>
 					</div>
-					<div class="control-group">
+					<div class="control-group required">
 						<label class="control-label">Reportado em</label>
 						<div class="controls">
 							<input type="text" class="span2"
 								name="issue.reportadoEm">
 						</div>
 					</div>
-					<div class="control-group">
+					<div class="control-group required">
 						<label class="control-label">Reportado por</label>
 						<div class="controls">
 							<input type="text" class="span4" 
 								value="Rafael Ponte" readonly="readonly">
 						</div>
 					</div>
-					<div class="control-group">
+					<div class="control-group required">
 						<label class="control-label">Assinado para</label>
 						<div class="controls">
 							<select class="span4" name="issue.assinadoPara.id">
+								<option value="">-- Selecione um usuário --</option>
 								<c:forEach var="usuario" items="${usuarios}">
 									<option value="${usuario.id}">${usuario.nome}</option>
 								</c:forEach>

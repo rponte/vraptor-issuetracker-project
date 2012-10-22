@@ -56,9 +56,9 @@ footer a:hover {
 /* end responsive footer fix */
 
 
-form .required {
+/* form .required {
     font-weight: bold;
-}
+} */
 form .required label.control-label:after {
     color: #e32;
     content: '*';
@@ -67,4 +67,26 @@ form .required label.control-label:after {
 
 td.nowrap {
 	white-space: nowrap;
+}
+
+/**
+ * Validação de inputs
+ */
+
+label.valid {
+	padding: 0;
+  	margin-top: 0;
+}
+
+label.error {
+  font-weight: bold;
+  /* color: red; */
+  color: #B94A48;
+  padding: 0px 8px;
+  /* margin-top: 2px; */
+}
+
+input.error,select.error{
+	color: #B94A48;
+	border-color: #B94A48;
 }

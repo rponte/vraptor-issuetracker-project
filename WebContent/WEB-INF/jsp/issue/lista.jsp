@@ -40,9 +40,25 @@
 	
 		<div class="wrapper">
 			<div class="container">
-				<div class="alert alert-error">
-					<strong>Warning!</strong> Best check yo self, you're not looking too good.
-				</div>
+				<!-- Error Messages -->
+				<c:if test="${not empty errors }">
+					<div class="alert alert-error">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						<h4>Erro(s):</h4>
+						<ul class="clearfix">
+							<c:forEach items="${errors}" var="error">
+								<li><strong>${error.category}</strong> - ${error.message}</li>
+							</c:forEach>
+						</ul>
+					</div>
+				</c:if>
+				<!-- Success Messages -->
+				<c:if test="${not empty notice }">
+					<div class="alert alert-success">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						${notice }
+					</div>
+				</c:if>
 				<legend>Cadastro de Issues</legend>
 				<form action="lista" method="get">
 					<div class="pull-right">
@@ -76,7 +92,7 @@
 								<td>${issue.assinadoPara.nome }</td>
 								<td class="nowrap">
 									<a href="edita?id=${issue.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
-	    							<a href="#"><i class="icon-trash"></i> Excluir</a>
+	    							<a href="remove?id=${issue.id }" onclick="return confirm('Deseja realmente remover esa issue?');"><i class="icon-trash"></i> Excluir</a>
 								</td>
 							</tr>
 						</c:forEach>
