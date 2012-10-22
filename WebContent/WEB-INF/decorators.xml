@@ -2,5 +2,8 @@
 
 <decorators defaultdir="/templates">
 	<decorator name="main" page="template_principal.jsp">
+		<pattern>/issue/lista*</pattern>
+		<pattern>/issue/novo*</pattern>
+		<pattern>/issue/edita*</pattern>
     </decorator>
 </decorators>
