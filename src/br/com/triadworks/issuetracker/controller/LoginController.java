@@ -25,19 +25,21 @@ public class LoginController {
 	}
 
 	@Get("/login")
-	public void formulario() { }
+	public void formulario() {
+		result.forwardTo("WEB-INF/jsp/login/login.jsp");
+	}
 	
 	@Post("/login")
 	public void logar(String login, String senha) {
 		
 		Usuario usuario = autenticador.autentica(login, senha);
-		if (usuario != null) {
-			usuarioWeb.loga(usuario);
-			result.redirectTo(IssueController.class).lista(); // TODO: alterar para DashBoard
+		if (usuario == null) {
+			validator.add(new ValidationMessage("Login e/ou senha inválidos", "Login"));
+			validator.onErrorForwardTo(this).formulario();
 		}
 		
-		validator.add(new ValidationMessage("Login e/ou senha inválidos", "usuario.login"));
-		validator.onErrorUsePageOf(this).formulario();
+		usuarioWeb.loga(usuario);
+		result.redirectTo(IssueController.class).lista(); // TODO: alterar para DashBoard
 	}
 	
 	@Get("/logout")
