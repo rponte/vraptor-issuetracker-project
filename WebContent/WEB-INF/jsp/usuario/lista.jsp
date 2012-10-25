@@ -8,7 +8,7 @@
 	</head>
 	<body>
 	
-		<legend>Cadastro de Usuário</legend>
+		<legend>Cadastro de Usuários</legend>
 		<form action="lista" method="get">
 			<div class="pull-right">
 				<a href="novo" class="btn">Novo</a>

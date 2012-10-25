@@ -33,6 +33,9 @@
 		<form id="form"
 			action="altera" 
 			method="post" class="form-horizontal">
+			
+			<input type="hidden" name="usuario.id" value="${usuario.id }">
+			
 			<legend>Cadastro de Usuários</legend>
 			<div class="control-group required">
 				<label class="control-label">Nome</label>
@@ -52,8 +55,11 @@
 			<div class="control-group required">
 				<label class="control-label">E-mail</label>
 				<div class="controls">
-					<input type="text" class="span3"
-						name="usuario.email" value="${usuario.email }">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-envelope"></i></span>
+						<input type="text" class="span3"
+							name="usuario.email" value="${usuario.email }">
+					</div>
 				</div>
 			</div>
 			<legend><small>Entre com a senha e confirmação de senha</small></legend>
