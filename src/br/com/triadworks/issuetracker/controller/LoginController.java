@@ -25,9 +25,7 @@ public class LoginController {
 	}
 
 	@Get("/login")
-	public void formulario() {
-		result.forwardTo("WEB-INF/jsp/login/login.jsp");
-	}
+	public void login() { }
 	
 	@Post("/login")
 	public void logar(String login, String senha) {
@@ -35,7 +33,7 @@ public class LoginController {
 		Usuario usuario = autenticador.autentica(login, senha);
 		if (usuario == null) {
 			validator.add(new ValidationMessage("Login e/ou senha inválidos", "Login"));
-			validator.onErrorForwardTo(this).formulario();
+			validator.onErrorForwardTo(this).login();
 		}
 		
 		usuarioWeb.loga(usuario);
@@ -45,7 +43,7 @@ public class LoginController {
 	@Get("/logout")
 	public void sair() {
 		usuarioWeb.logout();
-		result.redirectTo(this).formulario();
+		result.redirectTo(this).login();
 	}
 	
 }
