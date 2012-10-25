@@ -5,5 +5,8 @@
 		<pattern>/issue/lista*</pattern>
 		<pattern>/issue/novo*</pattern>
 		<pattern>/issue/edita*</pattern>
+		<pattern>/usuario/lista*</pattern>
+		<pattern>/usuario/novo*</pattern>
+		<pattern>/usuario/edita*</pattern>
     </decorator>
 </decorators>
