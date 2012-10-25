@@ -11,5 +11,6 @@
 		<pattern>/projeto/lista*</pattern>
 		<pattern>/projeto/novo*</pattern>
 		<pattern>/projeto/edita*</pattern>
+		<pattern>/dashboard*</pattern>
     </decorator>
 </decorators>
