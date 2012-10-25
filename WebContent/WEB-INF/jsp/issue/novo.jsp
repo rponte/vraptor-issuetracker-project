@@ -15,7 +15,7 @@
 						"issue.descricao": {
 							required: true,
 							minlength: 10,
-							maxlength: 100
+							maxlength: 1000
 						},
 						"issue.projeto.id": {
 							required: true
