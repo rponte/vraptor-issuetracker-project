@@ -37,7 +37,7 @@
 						<td>${issue.projeto.nome }</td>
 						<td>${issue.tipo }</td>
 						<td>${issue.status }</td>
-						<td><fmt:formatDate value="${issue.atualizadoEm }" type="both"/></td>
+						<td><fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy hh:mm"/></td>
 						<td>${issue.assinadoPara.nome }</td>
 						<td class="nowrap">
 							<a href="edita?id=${issue.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
