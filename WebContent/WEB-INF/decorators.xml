@@ -8,5 +8,8 @@
 		<pattern>/usuario/lista*</pattern>
 		<pattern>/usuario/novo*</pattern>
 		<pattern>/usuario/edita*</pattern>
+		<pattern>/projeto/lista*</pattern>
+		<pattern>/projeto/novo*</pattern>
+		<pattern>/projeto/edita*</pattern>
     </decorator>
 </decorators>
