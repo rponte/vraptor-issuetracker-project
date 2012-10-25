@@ -85,3 +85,10 @@ label.error {
   padding: 0px 8px;
   /* margin-top: 2px; */
 }
+
+table td:first-child {
+	width: 5%;
+}
+table td:last-child {
+	width: 10%;
+}
