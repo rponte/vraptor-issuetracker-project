@@ -5,6 +5,26 @@
 <html>
 	<head>
 		<!-- Meus imports -->
+		<script type="text/javascript">
+			$(function(){
+				
+				$("#form").validate({
+					onkeyup: false,
+					rules: {
+						"comentario.descricao": {
+							required: true
+						}
+					},
+				});
+				
+				$("#btn_fecha").click(function(){
+					var action = $("#form").attr("action");
+					var novaAction = action.replace("comenta", "fecha");
+					$("#form").attr("action", novaAction);
+				});
+				
+			});
+		</script>
 	</head>
 	<body>
 	
@@ -34,15 +54,21 @@
 			</blockquote>
 		</c:forEach>
 		
-		<form action="comenta">
-			<label>Comente nesta issue</label>
-			<textarea rows="4" class="span9_" style="width: 99%;"
-				name="comentario"></textarea>
-			<div>
-				<div class="pull-right">
-					<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i> Comentar</button>
-					<button type="submit" class="btn btn-danger"><i class="icon-check icon-white"></i> Fechar e Comentar</button>
+		<c:set var="disabled" value="${issue.fechada ? 'disabled' : ''}" />
+		
+		<form id="form" action="${ctx }/dashboard/issues/${issue.id}/comenta" method="post">
+			<div class="control-group required">
+				<label class="control-label">Comente nesta issue</label>
+				<div class="controls">
+					<textarea rows="4" class="span9_" style="width: 99%;"
+						name="comentario.descricao" ${disabled }></textarea>
 				</div>
+			</div>
+			<div class="pull-right">
+				<button id="btn_comenta" type="submit" 
+					class="btn btn-success" ${disabled }><i class="icon-comment icon-white"></i> Comentar</button>
+				<button id="btn_fecha" type="submit" 
+					class="btn btn-danger" ${disabled }><i class="icon-check icon-white"></i> Fechar e Comentar</button>
 			</div>
 		</form>
 		

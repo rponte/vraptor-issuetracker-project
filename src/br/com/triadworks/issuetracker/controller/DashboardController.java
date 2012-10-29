@@ -4,9 +4,11 @@ import java.util.List;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.triadworks.issuetracker.dao.IssueDao;
+import br.com.triadworks.issuetracker.model.Comentario;
 import br.com.triadworks.issuetracker.model.Issue;
 
 @Resource
@@ -35,6 +37,22 @@ public class DashboardController {
 	public Issue detalhe(Long id) {
 		Issue issue = dao.carrega(id);
 		return issue;
+	}
+	
+	@Post
+	@Path("/dashboard/issues/{id}/comenta")
+	public void comentaIssue(Long id, Comentario comentario) {
+		comentario.setAutor(usuarioWeb.getUsuario());
+		dao.comenta(id, comentario);
+		result.redirectTo(this).detalhe(id);
+	}
+	
+	@Post
+	@Path("/dashboard/issues/{id}/fecha")
+	public void fechaIssue(Long id, Comentario comentario) {
+		comentario.setAutor(usuarioWeb.getUsuario());
+		dao.fecha(id, comentario);
+		result.redirectTo(this).detalhe(id);
 	}
 	
 }
