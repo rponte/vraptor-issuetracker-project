@@ -11,37 +11,76 @@
 			<h1>Dashboard <small>do ${usuarioWeb.usuario.nome }</small></h1>
 		</div>
 		
-		<table class="table table-striped ">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Sumário</th>
-					<th>Projeto</th>
-					<th>Tipo</th>
-					<th>Status</th>
-					<th>Última Autalização</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="issue" items="${issueList}">
-					<tr>
-						<td><a href="${ctx }/dashboard/issues/${issue.id }"><fmt:formatNumber pattern="0000" value="${issue.id }" /></a></td>
-						<td><a href="${ctx }/dashboard/issues/${issue.id }">${issue.sumario }</a></td>
-						<td>${issue.projeto.nome }</td>
-						<td>${issue.tipo }</td>
-						<td>
-							<c:if test="${issue.fechada}">
-								<span class="label label-important">${issue.status }</span>
-							</c:if>
-							<c:if test="${!issue.fechada}">
-								<span class="label label-success">${issue.status }</span>
-							</c:if>
-						</td>
-						<td class="nowrap"><fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy hh:mm"/></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<div class="tabbable tabs-left">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab1" data-toggle="tab">Minhas Issues</a></li>
+				<li><a href="#tab2" data-toggle="tab">Todas</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="tab1">
+					<table class="table table-striped ">
+						<tbody>
+							<c:forEach var="issue" items="${issueList}">
+								<tr>
+									<td>#${issue.id }</td>
+									<td>
+										<strong>
+											<span class="muted">${issue.projeto.nome } »</span>
+											<a href="${ctx }/dashboard/issues/${issue.id }">${issue.sumario }</a>
+										</strong>
+										<p>
+											<small>
+												por <b>${issue.assinadoPara.nome }</b> em 
+												<fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy 'as' hh:mm"/>
+											</small>
+										</p>
+									</td>
+									<td>
+										<c:if test="${issue.fechada}">
+											<span class="label label-important">${issue.status }</span>
+										</c:if>
+										<c:if test="${!issue.fechada}">
+											<span class="label label-success">${issue.status }</span>
+										</c:if>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane" id="tab2">
+					<table class="table table-striped ">
+						<tbody>
+							<c:forEach var="issue" items="${todasAsIssues}">
+								<tr>
+									<td>#${issue.id }</td>
+									<td>
+										<strong>
+											<span class="muted">${issue.projeto.nome } »</span>
+											<a href="${ctx }/dashboard/issues/${issue.id }">${issue.sumario }</a>
+										</strong>
+										<p>
+											<small>
+												por <b>${issue.assinadoPara.nome }</b> em 
+												<fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy 'as' hh:mm"/>
+											</small>
+										</p>
+									</td>
+									<td>
+										<c:if test="${issue.fechada}">
+											<span class="label label-important">${issue.status }</span>
+										</c:if>
+										<c:if test="${!issue.fechada}">
+											<span class="label label-success">${issue.status }</span>
+										</c:if>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 		
 	</body>
 </html>
