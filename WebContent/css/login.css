@@ -1,43 +1,74 @@
-/*!
- * Issue Tracker
- */
 /* Override some defaults */
-html,body {
-	background-color: #eee;
+html, body {
+    background-color: #eee;
 }
-
 body {
-	/*padding-top: 40px;*/
+    padding-top: 40px; 
 }
-
-.container {
+.alert {
 	width: 300px;
+	margin:0 auto 10px auto; 
 }
-
-/* The white background content wrapper */
-.container>.content {
-	background-color: #fff;
-	padding: 20px;
-	margin: 0 -20px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	border-radius: 10px 10px 10px 10px;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-}
-
 .login-form {
-	margin-left: 65px;
+    width: 300px;
+    margin:0 auto;    
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
-
-legend {
-	margin-right: -50px;
-	font-weight: bold;
-	color: #404040;
+.login-form form{
+    padding:25px 30px 40px 40px;
 }
-
-/* .wrapper>.container {
-	padding-top: 0;
-	padding-bottom: 0;
+/* .login-form form legend{
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    color: #666;
+    text-rendering: optimizelegibility;
 } */
+/* .login-form form input{
+    margin:0 0 15px 0;
+    background-color: white;
+    border: 1px solid #CCC;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    display: inline-block;
+    height: 20px;
+    padding: 4px 0px;
+    line-height: 20px;
+    width:100%;
+    border-radius:2px;
+}
+.login-form form button{
+    padding:4px 13px;
+    display:block; 
+    margin:0;
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #006DCC;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#04C));
+    background-image: -webkit-linear-gradient(top, #08C, #04C);
+    background-image: -o-linear-gradient(top, #08C, #04C);
+    background-image: linear-gradient(to bottom, #08C, #04C);
+    background-image: -moz-linear-gradient(top, #08C, #04C);
+    background-repeat: repeat-x;
+    border-color: #04C #04C #002A80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    border-radius:4px;
+}
+​ */
