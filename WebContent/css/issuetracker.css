@@ -35,7 +35,7 @@ footer a:hover {
 /* not required for sticky footer; just pushes hero down a bit */
 .wrapper>.container {
 	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-bottom: 70px;
 }
 
 /* responsive footer fix by Aalaap Ghag */
