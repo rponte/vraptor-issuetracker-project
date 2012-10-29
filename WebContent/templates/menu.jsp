@@ -13,9 +13,9 @@
 							<li><a href="${ctx}/issue/lista">Issues</a></li>
 						</ul>
 						<ul class="nav pull-right">
-	                      <li><a href="#"><span class="badge badge-success">Rafael Ponte</span></a></li>
+	                      <li><a href="#"><span class="badge badge-success">${usuarioWeb.usuario.nome }</span></a></li>
 	                      <li class="divider-vertical"></li>
-	                      <li><a href="#">Sair</a></li>
+	                      <li><a href="${ctx }/logout">Sair</a></li>
 	                    </ul>
 					</div>
 				</div>

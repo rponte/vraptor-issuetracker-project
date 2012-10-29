@@ -37,7 +37,7 @@ public class LoginController {
 		}
 		
 		usuarioWeb.loga(usuario);
-		result.redirectTo(DashboardController.class).dashboard(); // TODO: alterar para DashBoard
+		result.redirectTo(DashboardController.class).dashboard();
 	}
 	
 	@Get("/logout")
