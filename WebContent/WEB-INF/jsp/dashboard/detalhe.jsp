@@ -13,19 +13,14 @@
 		<h2>
 				#${issue.id } &nbsp; ${issue.sumario}
 		</h2>
-		
 		<p>
-			<dl class="dl-horizontal">
-				<dt>
-					<c:if test="${issue.fechada}">
-						<span class="label label-important">${issue.status }</span>
-					</c:if>
-					<c:if test="${!issue.fechada}">
-						<span class="label label-success">${issue.status }</span>
-					</c:if>
-				</dt>
-				<dd>${issue.descricao }</dd>
-			</dl>
+			<div class="row">
+				<div class="span1">
+					<c:set var="status_class" value="${issue.fechada ? 'label-important' : 'label-success'}" />
+					<span class="label ${status_class }">${issue.status }</span>
+				</div>
+				<div class="span8">${issue.descricao }</div>
+			</div>
 		</p>
 		
 		<hr />
@@ -42,11 +37,11 @@
 		<form action="comenta">
 			<label>Comente nesta issue</label>
 			<textarea rows="4" class="span9_" style="width: 99%;"
-				name="issue.descricao"></textarea>
+				name="comentario"></textarea>
 			<div>
 				<div class="pull-right">
-					<button type="submit" class="btn btn-success">Comentar</button>
-					<button type="submit" class="btn btn-danger">Fechar e Comentar</button>
+					<button type="submit" class="btn btn-success"><i class="icon-comment icon-white"></i> Comentar</button>
+					<button type="submit" class="btn btn-danger"><i class="icon-check icon-white"></i> Fechar e Comentar</button>
 				</div>
 			</div>
 		</form>
