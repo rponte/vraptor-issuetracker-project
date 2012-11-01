@@ -39,19 +39,25 @@
 					<c:set var="status_class" value="${issue.fechada ? 'label-important' : 'label-success'}" />
 					<span class="label ${status_class }">${issue.status }</span>
 				</div>
-				<div class="span8">${issue.descricao }</div>
+				<div class="span8 lead">${issue.descricao }</div>
 			</div>
 		</p>
 		
 		<hr />
 		
 		<c:forEach var="comentario" items="${issue.comentarios }">
-			<blockquote>
-				<p>${comentario.descricao }</p>
-				<small>${comentario.autor.nome} comentou em 
-					<fmt:formatDate value="${comentario.criadaEm }" pattern="dd/MM/yyyy 'as' HH:mm"/>
-				</small>
-			</blockquote>
+			<div class="media span9">
+				<a class="pull-left" href="#">
+			      <i class="icon-comment"></i>
+			    </a>
+				<div class="media-body">
+					<h4 class="media-heading">${comentario.autor.nome} 
+						<small> » <fmt:formatDate value="${comentario.criadaEm }" pattern="dd/MM/yyyy',' HH:mm "/></small>
+					</h4>
+					${comentario.descricao }
+					<hr />
+				</div>
+			</div>
 		</c:forEach>
 		
 		<c:set var="disabled" value="${issue.fechada ? 'disabled' : ''}" />
