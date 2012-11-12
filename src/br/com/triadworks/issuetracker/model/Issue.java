@@ -2,7 +2,6 @@ package br.com.triadworks.issuetracker.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -125,7 +124,10 @@ public class Issue implements Serializable {
 		this.status = status;
 	}
 	public List<Comentario> getComentarios() {
-		return Collections.unmodifiableList(comentarios);
+		return comentarios;
+	}
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 	
 	/**
