@@ -35,6 +35,7 @@ public class IssueDaoImpl implements IssueDao {
 
 	@Override
 	public void atualiza(Issue issue) {
+		issue.setComentarios(carrega(issue.getId()).getComentarios());
 		entityManager.merge(issue);
 	}
 
