@@ -1,8 +1,11 @@
 package br.com.triadworks.issuetracker.controller;
 
 import java.util.List;
+
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
 
@@ -11,10 +14,12 @@ public class UsuarioController {
 
 	private final UsuarioDao dao;
 	private final Result result;
+	private final Validator validator;
 
-	public UsuarioController(UsuarioDao dao, Result result) {
+	public UsuarioController(UsuarioDao dao, Result result, Validator validator) {
 		this.dao = dao;
 		this.result = result;
+		this.validator = validator;
 	}
 	
 	public List<Usuario> lista() {
@@ -22,10 +27,13 @@ public class UsuarioController {
 	}
 	
 	public void novo() {
-		
 	}
 	
-	public void adiciona(Usuario usuario) {
+	public void adiciona(Usuario usuario, String confirmacaoDeSenha) {
+		
+		valida(usuario, confirmacaoDeSenha);
+		validator.onErrorUsePageOf(this).novo();
+		
 		dao.salva(usuario);
 		result.include("notice", "Usuário adicionado com sucesso!");
 		result.redirectTo(this).lista();
@@ -36,7 +44,11 @@ public class UsuarioController {
 		return usuario;
 	}
 	
-	public void altera(Usuario usuario) {
+	public void altera(Usuario usuario, String confirmacaoDeSenha) {
+		
+		valida(usuario, confirmacaoDeSenha);
+		validator.onErrorUsePageOf(this).edita(usuario.getId());
+		
 		dao.atualiza(usuario);
 		result.include("notice", "Usuário atualizado com sucesso!");
 		result.redirectTo(this).lista();
@@ -47,6 +59,33 @@ public class UsuarioController {
 		dao.remove(usuario);
 		result.include("notice", "Usuário removido com sucesso!");
 		result.redirectTo(this).lista();
+	}
+	
+	private void valida(Usuario usuario, String confirmacaoDeSenha) {
+		if (usuario.getNome() == null
+				|| usuario.getLogin().length() < 3) {
+			validator.add(new ValidationMessage("Campo obrigatório e precisa ter mais de 3 letras", "Nome"));
+		}
+		if (usuario.getLogin() == null
+				|| usuario.getLogin().length() < 4) {
+			validator.add(new ValidationMessage("Campo obrigatório e precisa ter mais de 4 letras", "Login"));
+		}
+		if (usuario.getEmail() == null
+				|| usuario.getEmail().isEmpty()) {
+			validator.add(new ValidationMessage("Campo obrigatório", "E-mail"));
+		} else {
+			if (!usuario.getEmail().contains("@")) {
+				validator.add(new ValidationMessage("Endereço eletrônico inválido", "E-mail"));
+			}
+		}
+		if (usuario.getSenha() == null
+				|| usuario.getSenha().isEmpty()) {
+			validator.add(new ValidationMessage("Campo obrigatório", "Senha"));
+		} else {
+			if (!usuario.getSenha().equals(confirmacaoDeSenha)) {
+				validator.add(new ValidationMessage("Confirmação de senha não confere com senha", "Confirmação de senha"));
+			}
+		}
 	}
 	
 }

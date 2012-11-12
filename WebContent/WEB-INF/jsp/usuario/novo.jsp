@@ -38,14 +38,14 @@
 				<label class="control-label">Nome</label>
 				<div class="controls">
 					<input type="text" class="span4"
-						name="usuario.nome">
+						name="usuario.nome" value="${usuario.nome }">
 				</div>
 			</div>
 			<div class="control-group required">
 				<label class="control-label">Login</label>
 				<div class="controls">
 					<input type="text" class="span2"
-						name="usuario.login">
+						name="usuario.login" value="${usuario.login }">
 				</div>
 			</div>
 			<div class="control-group required">
@@ -54,7 +54,7 @@
 					<div class="input-prepend">
 						<span class="add-on"><i class="icon-envelope"></i></span>
 						<input type="text" class="span3"
-							name="usuario.email">
+							name="usuario.email" value="${usuario.email }">
 					</div>
 				</div>
 			</div>
@@ -68,7 +68,7 @@
 			<div class="control-group required">
 				<label class="control-label">Confirma</label>
 				<div class="controls">
-					<input type="password" class="span2" name="confirmacaoDeSenha">
+					<input type="password" class="span2" name="confirmacaoDeSenha" >
 				</div>
 			</div>
 			<div class="form-actions">
