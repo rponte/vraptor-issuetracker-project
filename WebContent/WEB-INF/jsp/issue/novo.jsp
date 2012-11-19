@@ -37,7 +37,7 @@
 	<body>
 
 		<form id="form"
-			action="adiciona" 
+			action="${ctx }/issues" 
 			method="post" class="form-horizontal">
 			<legend>Cadastro de Issues</legend>
 			<div class="control-group required">
@@ -105,7 +105,7 @@
 			</div>
 			<div class="form-actions">
 				<div class="pull-right">
-					<a href="lista" class="btn">Cancelar</a>
+					<a href="${ctx }/issues" class="btn">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>

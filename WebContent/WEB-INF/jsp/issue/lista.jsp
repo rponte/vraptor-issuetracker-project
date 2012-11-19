@@ -9,9 +9,9 @@
 	<body>
 	
 		<legend>Cadastro de Issues</legend>
-		<form action="lista" method="get">
+		<form action="${ctx }/issues" method="get">
 			<div class="pull-right">
-				<a href="novo" class="btn">Novo</a>
+				<a href="${ctx }/issues/novo" class="btn">Novo</a>
 				<button class="btn btn-primary" type="submit">Listar</button>
 			</div>
 		</form>
@@ -40,8 +40,14 @@
 						<td><fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy hh:mm"/></td>
 						<td>${issue.assinadoPara.nome }</td>
 						<td class="nowrap">
-							<a href="edita?id=${issue.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
-   							<a href="remove?id=${issue.id }" onclick="return confirm('Deseja realmente remover essa issue?');"><i class="icon-trash"></i> Excluir</a>
+							<a href="${ctx }/issues/${issue.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
+							<form action="${ctx }/issues/${issue.id }" method="POST" class="link-excluir">
+								<button class="btn btn-link" 
+									type="submit" onclick="return confirm('Deseja realmente remover essa issue?');">
+									<i class="icon-trash"></i> Excluir
+								</button> 
+								<input type="hidden" name="_method" value="DELETE">
+   							</form>
 						</td>
 					</tr>
 				</c:forEach>

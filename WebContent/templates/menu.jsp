@@ -10,7 +10,7 @@
 							<li class="active"><a href="${ctx}/dashboard">Dashboard</a></li>
 							<li><a href="${ctx}/projetos">Projetos</a></li>
 							<li><a href="${ctx}/usuario/lista">Usuários</a></li>
-							<li><a href="${ctx}/issue/lista">Issues</a></li>
+							<li><a href="${ctx}/issues">Issues</a></li>
 						</ul>
 						<ul class="nav pull-right">
 	                      <li><a href="#"><span class="badge badge-success">${usuarioWeb.usuario.nome }</span></a></li>

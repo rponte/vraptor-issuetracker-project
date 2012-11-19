@@ -38,10 +38,10 @@
 
 		<form
 			id="form"
-			action="altera" 
+			action="${ctx }/issues/${issue.id}" 
 			method="post" class="form-horizontal">
 			
-			<input type="hidden" name="issue.id" value="${issue.id }">
+			<input type="hidden" name="_method" value="PUT">
 			
 			<legend>Cadastro de Issues</legend>
 			<div class="control-group required">
@@ -119,7 +119,7 @@
 			</div>
 			<div class="form-actions">
 				<div class="pull-right">
-					<a href="lista" class="btn">Cancelar</a>
+					<a href="${ctx }/issues" class="btn">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>
