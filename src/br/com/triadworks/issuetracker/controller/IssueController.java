@@ -68,8 +68,7 @@ public class IssueController {
 	public void remove(Long id) {
 		Issue issue = dao.carrega(id);
 		dao.remove(issue);
-		result.include("notice", "Issue removida com sucesso!");
-		result.redirectTo(this).lista();
+		result.nothing();
 	}
 	
 }

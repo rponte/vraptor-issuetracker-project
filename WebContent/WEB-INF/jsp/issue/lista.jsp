@@ -5,6 +5,38 @@
 <html>
 	<head>
 		<!-- Meus imports -->
+		<script type="text/javascript">
+			function remove(id) {
+				
+				var confirmacao = confirm('Deseja realmente remover essa issue?');
+				if (!confirmacao) {
+					return false;
+				}
+				
+				var ctx = "${ctx}"; // EL do JSP
+				var url = ctx + "/issues/" + id;
+				
+				$.ajax({
+					type: "DELETE",
+					url: url,
+					success: function(retorno) {
+						
+						//alert("Issue removida com sucesso!");
+						//$("#issue_" + id).remove();
+						
+						$("#issue_" + id)
+							.children().css("background-color", "yellow")
+							.fadeOut(1000, function() {
+								$("#issue_" + id).remove();
+							});
+						
+					}
+				});
+
+				return false;
+				
+			}
+		</script>
 	</head>
 	<body>
 	
@@ -31,7 +63,7 @@
 			</thead>
 			<tbody>
 				<c:forEach var="issue" items="${issueList}">
-					<tr>
+					<tr id="issue_${issue.id }">
 						<td>${issue.id }</td>
 						<td>${issue.sumario }</td>
 						<td>${issue.projeto.nome }</td>
@@ -41,13 +73,7 @@
 						<td>${issue.assinadoPara.nome }</td>
 						<td class="nowrap">
 							<a href="${ctx }/issues/${issue.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
-							<form action="${ctx }/issues/${issue.id }" method="POST" class="link-excluir">
-								<button class="btn btn-link" 
-									type="submit" onclick="return confirm('Deseja realmente remover essa issue?');">
-									<i class="icon-trash"></i> Excluir
-								</button> 
-								<input type="hidden" name="_method" value="DELETE">
-   							</form>
+							<a href="#" onclick="return remove(${issue.id});"><i class="icon-trash"></i> Excluir</a>
 						</td>
 					</tr>
 				</c:forEach>
