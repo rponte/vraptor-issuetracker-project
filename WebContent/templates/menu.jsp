@@ -8,7 +8,7 @@
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active"><a href="${ctx}/dashboard">Dashboard</a></li>
-							<li><a href="${ctx}/projeto/lista">Projetos</a></li>
+							<li><a href="${ctx}/projetos">Projetos</a></li>
 							<li><a href="${ctx}/usuario/lista">Usuários</a></li>
 							<li><a href="${ctx}/issue/lista">Issues</a></li>
 						</ul>

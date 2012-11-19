@@ -9,9 +9,9 @@
 	<body>
 	
 		<legend>Cadastro de Projetos</legend>
-		<form action="lista" method="get">
+		<form action="${ctx }/projetos" method="GET">
 			<div class="pull-right">
-				<a href="novo" class="btn">Novo</a>
+				<a href="${ctx }/projetos/novo" class="btn">Novo</a>
 				<button class="btn btn-primary" type="submit">Listar</button>
 			</div>
 		</form>
@@ -30,8 +30,14 @@
 						<td>${projeto.id }</td>
 						<td>${projeto.nome }</td>
 						<td class="nowrap">
-							<a href="edita?id=${projeto.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
-   							<a href="remove?id=${projeto.id }" onclick="return confirm('Deseja realmente remover esse projeto?');"><i class="icon-trash"></i> Excluir</a>
+							<a href="${ctx }/projetos/${projeto.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
+							<form action="${ctx }/projetos/${projeto.id }" method="POST" class="link-excluir">
+								<button class="btn btn-link" 
+									type="submit" onclick="return confirm('Deseja realmente remover esse projeto?');">
+									<i class="icon-trash"></i> Excluir
+								</button> 
+								<input type="hidden" name="_method" value="DELETE">
+   							</form>
 						</td>
 					</tr>
 				</c:forEach>

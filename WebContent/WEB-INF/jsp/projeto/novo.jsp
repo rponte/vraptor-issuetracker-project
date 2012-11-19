@@ -19,7 +19,7 @@
 	<body>
 
 		<form id="form"
-			action="altera" 
+			action="${ctx }/projetos" 
 			method="post" class="form-horizontal">
 			<legend>Cadastro de Projetos</legend>
 			<div class="control-group required">
@@ -31,7 +31,7 @@
 			</div>
 			<div class="form-actions">
 				<div class="pull-right">
-					<a href="lista" class="btn">Cancelar</a>
+					<a href="${ctx }/projetos" class="btn">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>

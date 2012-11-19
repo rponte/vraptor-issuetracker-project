@@ -19,10 +19,10 @@
 	<body>
 
 		<form id="form"
-			action="altera" 
+			action="${ctx }/projetos/${projeto.id}" 
 			method="post" class="form-horizontal">
 			
-			<input type="hidden" name="projeto.id" value="${projeto.id }">
+			<input type="hidden" name="_method" value="PUT">
 			
 			<legend>Cadastro de Projetos</legend>
 			<div class="control-group required">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="form-actions">
 				<div class="pull-right">
-					<a href="lista" class="btn">Cancelar</a>
+					<a href="${ctx }/projetos" class="btn">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>

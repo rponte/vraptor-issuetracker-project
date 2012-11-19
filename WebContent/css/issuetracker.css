@@ -70,6 +70,19 @@ td.nowrap {
 }
 
 /**
+ * Link de exclusão nas grids
+ */
+form.link-excluir {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+form.link-excluir button.btn {
+	padding: 0;
+	margin: -3px 0 0 0;
+} 
+
+/**
  * Validação de inputs
  */
 
