@@ -13,5 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="etc/lib/build/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="etc/lib/build/mockito-all-1.9.0.jar"/>
+	<classpathentry kind="lib" path="etc/lib/build/org.springframework.test-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="etc/lib/build/dbunit-2.4.8.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
