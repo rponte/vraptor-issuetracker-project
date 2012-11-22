@@ -11,3 +11,4 @@
 		<script src="${ctx}/js/validator/jquery.validate.min.js"></script>
 		<script src="${ctx}/js/validator/messages_pt_BR.js"></script>
 		<script src="${ctx}/js/issuetracker.js" ></script>
+		<script src="${ctx}/js/jquery.maskedinput-1.3.js" ></script>
