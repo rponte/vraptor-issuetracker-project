@@ -48,8 +48,8 @@
 		<c:forEach var="comentario" items="${issue.comentarios }">
 			<div class="media span9">
 				<a class="pull-left" href="#">
-			      <i class="icon-comment"></i>
-			    </a>
+					<img class="media-object" src=${ctx }/img/photo_32x32.gif>
+				</a>
 				<div class="media-body">
 					<h4 class="media-heading">${comentario.autor.nome} 
 						<small> » <fmt:formatDate value="${comentario.criadaEm }" pattern="dd/MM/yyyy',' HH:mm "/></small>
