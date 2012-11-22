@@ -1,5 +1,6 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import br.com.caelum.vraptor.Delete;
@@ -9,6 +10,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.dao.ProjetoDao;
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
@@ -21,13 +23,18 @@ public class IssueController {
 	private final Result result;
 	private final ProjetoDao projetoDao;
 	private final UsuarioDao usuarioDao;
+	private final Validator validator;
+	private final UsuarioWeb usuarioWeb;
 
 	public IssueController(IssueDao dao, ProjetoDao projetoDao, 
-			UsuarioDao usuarioDao, Result result) {
+			UsuarioDao usuarioDao, UsuarioWeb usuarioWeb,
+			Result result, Validator validator) {
 		this.dao = dao;
 		this.projetoDao = projetoDao;
 		this.usuarioDao = usuarioDao;
+		this.usuarioWeb = usuarioWeb;
 		this.result = result;
+		this.validator = validator;
 	}
 	
 	@Get
@@ -39,12 +46,21 @@ public class IssueController {
 	
 	@Get("/issues/novo")
 	public void novo() {
+		
+		Issue issue = new Issue();
+		issue.setReportadoEm(new Date());
+		issue.setReportadoPor(usuarioWeb.getUsuario());
+		
+		result.include("issue", issue);
 		result.include("projetos", projetoDao.listaTudo());
 		result.include("usuarios", usuarioDao.listaTudo());
 	}
 	
 	@Post("/issues")
 	public void adiciona(Issue issue) {
+		
+		validator.onErrorForwardTo(this).novo();
+		
 		dao.salva(issue);
 		result.include("notice", "Issue adicionada com sucesso!");
 		result.redirectTo(this).lista();
@@ -59,6 +75,9 @@ public class IssueController {
 	
 	@Put("/issues/{issue.id}")
 	public void altera(Issue issue) {
+		
+		validator.onErrorForwardTo(this).edita(issue.getId());
+		
 		dao.atualiza(issue);
 		result.include("notice", "Issue atualizada com sucesso!");
 		result.redirectTo(this).lista();

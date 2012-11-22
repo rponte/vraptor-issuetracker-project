@@ -96,7 +96,8 @@
 				<label class="control-label">Reportado por</label>
 				<div class="controls">
 					<input type="text" class="span4" 
-						value="Rafael Ponte" readonly="readonly">
+						value="${issue.reportadoPor.nome }" readonly="readonly">
+					<input type="hidden" name="issue.reportadoPor.id" value="${issue.reportadoPor.id }">
 				</div>
 			</div>
 			<div class="control-group required">
