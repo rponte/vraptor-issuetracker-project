@@ -37,7 +37,7 @@ Informações adicionais
 * Dentro do diretório `/etc/lib/jdbc-drivers` é possível encontrar alguns drivers já disponíveis, como `MySQL`, `PostgreSQL` e `Oracle`;
 * Dentro do diretório `/etc/mockups` você encontra os mockups (esboços) das telas da aplicação;
 * O design da aplicação foi construído e totalmente baseado no [Bootstrap v2.2.1 do Twitter](http://twitter.github.io/bootstrap/);
-* Alguns screenshots da aplicação rodando podem ser vistos [aqui](http://twitpic.com/b79qri/full) e [aqui](http://twitpic.com/b79p9c/full);
+* Alguns screenshots da aplicação rodando podem ser vistos em: [listagem de issues](http://twitpic.com/b79qri/full) e [edição de usuário](http://twitpic.com/b79p9c/full);
 
 Mais informações
 ----------------
