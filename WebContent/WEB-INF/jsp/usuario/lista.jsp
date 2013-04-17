@@ -4,7 +4,35 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Meus imports -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				
+ 				$(".link-exclusao").click(function() {
+					var confirmacao = confirm('Deseja realmente remover esse usuário?');
+					if (!confirmacao) {
+						return false;
+					}
+				
+					var link = $(this);
+					var uri = link.attr("href");
+					
+					$.ajax({
+						type: "DELETE", // tanto faz pois nao é REST
+						url: uri,
+						success: function(retorno) {
+							var tr = link.parents("tr");
+							tr.children()
+								.css("background-color", "yellow")
+								.fadeOut(1000, function(){
+									tr.remove();
+								});
+						}
+					});
+					
+					return false; // nao pode esquecer! 
+ 				});
+			});
+		</script>
 	</head>
 	<body>
 	
@@ -35,7 +63,7 @@
 						<td>${usuario.email }</td>
 						<td class="nowrap">
 							<a href="edita?id=${usuario.id }"><i class="icon-pencil"></i> Editar</a> &nbsp;
-   							<a href="remove?id=${usuario.id }" onclick="return confirm('Deseja realmente remover esse usuário?');"><i class="icon-trash"></i> Excluir</a>
+   							<a class="link-exclusao" href="remove?id=${usuario.id }"><i class="icon-trash"></i> Excluir</a>
 						</td>
 					</tr>
 				</c:forEach>

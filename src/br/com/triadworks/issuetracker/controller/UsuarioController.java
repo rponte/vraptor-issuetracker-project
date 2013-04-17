@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.view.Results;
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
 
@@ -54,11 +55,26 @@ public class UsuarioController {
 		result.redirectTo(this).lista();
 	}
 	
+	/**
+	 * Removendo usuário SEM Ajax
+	 */
+//	public void remove(Long id) {
+//		Usuario usuario = dao.carrega(id);
+//		dao.remove(usuario);
+//		result.include("notice", "Usuário removido com sucesso!");
+//		result.redirectTo(this).lista();
+//	}
+	/**
+	 * Removendo usuário COM Ajax
+	 */
 	public void remove(Long id) {
 		Usuario usuario = dao.carrega(id);
-		dao.remove(usuario);
-		result.include("notice", "Usuário removido com sucesso!");
-		result.redirectTo(this).lista();
+//		dao.remove(usuario);
+		result.use(Results.json())
+			.withoutRoot().from(usuario)
+//			.from(usuario, "usuario")
+			.exclude("senha")
+			.serialize();
 	}
 	
 	private void valida(Usuario usuario, String confirmacaoDeSenha) {
