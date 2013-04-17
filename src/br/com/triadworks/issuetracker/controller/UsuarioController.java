@@ -69,7 +69,7 @@ public class UsuarioController {
 	 */
 	public void remove(Long id) {
 		Usuario usuario = dao.carrega(id);
-//		dao.remove(usuario);
+		dao.remove(usuario);
 		result.use(Results.json())
 			.withoutRoot().from(usuario)
 //			.from(usuario, "usuario")
