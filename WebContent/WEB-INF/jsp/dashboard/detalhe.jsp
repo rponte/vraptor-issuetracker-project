@@ -18,6 +18,9 @@
 					},
 				});
 				
+				/**
+				 * Altera action do form antes de fechar a Issue
+				 */	
 				$("#btn_fecha").click(function(){
 					var action = $("#form").attr("action");
 					var novaAction = action.replace("comenta", "fecha");
