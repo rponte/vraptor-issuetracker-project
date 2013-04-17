@@ -24,7 +24,7 @@ public class IssueDaoImpl implements IssueDao {
 	@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 	public List<Issue> listaTudo() {
 		return entityManager
-				.createQuery("from Issue", Issue.class)
+				.createQuery("from Issue order by reportadoEm desc", Issue.class)
 				.getResultList();
 	}
 
@@ -54,7 +54,7 @@ public class IssueDaoImpl implements IssueDao {
 	@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 	public List<Issue> getIssuesDoUsuario(Long id) {
 		return entityManager
-				.createQuery("from Issue where assinadoPara.id = :id", Issue.class)
+				.createQuery("from Issue where assinadoPara.id = :id order by reportadoEm desc", Issue.class)
 				.setParameter("id", id)
 				.getResultList();
 	}
