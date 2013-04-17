@@ -8,12 +8,6 @@
 		</fileset>
 	</path>
 	
-	<path id="build-classpath">
-		<fileset dir="${lib.dir}/build">
-			<include name="*.jar" />
-		</fileset>
-	</path>
-	
 	<target name="clean">
 		<delete dir="${default.target.dir}" />
 		<mkdir dir="${classes.dir}" />
@@ -29,7 +23,6 @@
 			source="1.6" target="1.6" encoding="UTF-8">
 			<classpath>
 				<path refid="webinf-classpath" />
-				<path refid="build-classpath" />
 			</classpath>
 		</javac>
 	</target>
