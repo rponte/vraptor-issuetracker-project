@@ -20,22 +20,8 @@
     </filter-mapping>
 	
 	<!-- ******************************************************* -->
-	<!-- Configuracao do Spring -->
+	<!-- Configuracao do Open Session in View -->
 	<!-- ******************************************************* -->
-	
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/config/spring/applicationContext.xml,
-			/WEB-INF/config/spring/applicationContext-persistence.xml
-		</param-value>
-	</context-param>
-	
-	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
-	</listener>
 	
 	<!-- Spring (Jpa Support) - OpenEntityManagerInViewFilter -->
 	<filter>
