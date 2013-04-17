@@ -48,7 +48,7 @@
 		<c:forEach var="comentario" items="${issue.comentarios }">
 			<div class="media span9">
 				<a class="pull-left" href="#">
-					<img class="media-object" src=${ctx }/img/photo_32x32.gif>
+					<img class="media-object" src=${ctx }/img/photo_user.png>
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">${comentario.autor.nome} 
