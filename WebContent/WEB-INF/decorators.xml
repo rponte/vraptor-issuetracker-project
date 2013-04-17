@@ -2,18 +2,12 @@
 
 <decorators defaultdir="/templates">
 	<decorator name="main" page="template_principal.jsp">
-		<pattern>/issue/lista*</pattern>
-		<pattern>/issue/novo*</pattern>
-		<pattern>/issue/edita*</pattern>
-		<pattern>/issues*</pattern>
 		<pattern>/usuario/lista*</pattern>
 		<pattern>/usuario/novo*</pattern>
 		<pattern>/usuario/adiciona*</pattern>
 		<pattern>/usuario/altera*</pattern>
 		<pattern>/usuario/edita*</pattern>
-		<pattern>/projeto/lista*</pattern>
-		<pattern>/projeto/novo*</pattern>
-		<pattern>/projeto/edita*</pattern>
+		<pattern>/issues*</pattern>
 		<pattern>/projetos*</pattern>
 		<pattern>/dashboard*</pattern>
     </decorator>
