@@ -12,7 +12,8 @@
 					onkeyup: false,
 					rules: {
 						"comentario.descricao": {
-							required: true
+							required: true,
+							maxlength: 2000
 						}
 					},
 				});

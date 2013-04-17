@@ -3,6 +3,7 @@ package br.com.triadworks.issuetracker.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class Comentario implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@Column(length=2000)
 	private String descricao;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
