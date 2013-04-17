@@ -30,8 +30,8 @@
 										</strong>
 										<p>
 											<small>
-												por <b>${issue.assinadoPara.nome }</b> em 
-												<fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy 'as' hh:mm"/>
+												Aberto por <b>${issue.reportadoPor.nome }</b> em 
+												<fmt:formatDate value="${issue.reportadoEm }" pattern="dd/MM/yyyy 'as' hh:mm"/>
 											</small>
 										</p>
 									</td>
@@ -61,8 +61,8 @@
 										</strong>
 										<p>
 											<small>
-												por <b>${issue.assinadoPara.nome }</b> em 
-												<fmt:formatDate value="${issue.atualizadoEm }" pattern="dd/MM/yyyy 'as' hh:mm"/>
+												Aberto por <b>${issue.reportadoPor.nome }</b> em 
+												<fmt:formatDate value="${issue.reportadoEm }" pattern="dd/MM/yyyy 'as' hh:mm"/>
 											</small>
 										</p>
 									</td>
