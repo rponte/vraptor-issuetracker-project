@@ -1,4 +1,7 @@
 bin/
 build/
+!etc/lib/build
+WebContent/WEB-INF/classes/
 *.class
 .DS_Store
+target/
